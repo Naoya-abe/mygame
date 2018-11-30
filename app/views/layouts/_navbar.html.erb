@@ -13,8 +13,30 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to '新規登録', new_user_registration_path %></li>
-        <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <% if user_signed_in? %>
+          <li>
+            <a href="#">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              いいね一覧
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              GAME一覧
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              投稿する
+            </a>
+          </li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to '新規登録', new_user_registration_path %></li>
+          <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <% end %>
       </ul>
       </div>
     </div>

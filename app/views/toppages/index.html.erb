@@ -3,7 +3,9 @@
     <div class="cover-inner">
       <div class="cover-contents">
         <h1>思い出のゲームを共有しませんか？</h1>
-        <%= link_to 'MYGAMEを始める', new_user_registration_path, class: "btn btn-success btn-lg" %>
+          <% unless user_signed_in? %>
+            <%= link_to 'MYGAMEを始める', new_user_registration_path, class: "btn btn-success btn-lg" %>
+          <% end %>  
       </div>
     </div>
   </div>
