@@ -1,0 +1,14 @@
+<div class="search">
+  <div class="row">
+    <div class="text-center">
+      <%= form_tag(new_game_path, method: :get, class: 'form-inline') do %>
+        <div class="form-group">
+          <%= text_field_tag :title, @title, class: 'form-control input-lg', placeholder: "タイトルを入力", size: 40 %>
+        </div>
+        <%= submit_tag 'ゲームを検索', class: 'btn btn-success btn-lg' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'games', games: @games %>

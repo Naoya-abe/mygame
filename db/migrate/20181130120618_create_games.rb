@@ -1,0 +1,12 @@
+class CreateGames < ActiveRecord::Migration[5.2]
+  def change
+    create_table :games do |t|
+      t.string :jancode
+      t.string :title
+      t.string :url
+      t.string :image_url
+
+      t.timestamps
+    end
+  end
+end
