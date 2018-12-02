@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   
   
   resources :games, only: [:new]
+  resources :posts, only: [:new, :create, :destroy, :edit, :update]
 end

@@ -21,16 +21,16 @@
             </a>
           </li>
           <li>
-            <a href="#">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              GAME一覧
-            </a>
-          </li>
-          <li>
             <%= link_to new_game_path do %>
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
               投稿する
             <% end %>
+          </li>
+          <li>
+            <a href="#">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              マイページ
+            </a>
           </li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
         <% else %>
