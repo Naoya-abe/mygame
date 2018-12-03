@@ -1,0 +1,22 @@
+<!--ここにToppageに表示させたいことを書く！-->
+
+<% if posts %>
+  <div class="row">
+    <% posts.each do |post| %>
+      <div class="post">
+        <div class="col-md-4 col-sm-6 col-xs-15">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <p class="user_name text-left"><%= post.user.name %></p>
+              <img src="<%= post.game.image_url %>" alt="" >
+            </div>
+            <div class="panel-body text-center">
+              <p class="game-title"><%= post.game.title %></p>
+              <p class="post_impression"><%= post.impression %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

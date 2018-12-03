@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'toppages#index'
   
   
+  
   resources :games, only: [:new]
   resources :posts, only: [:new, :create, :destroy, :edit, :update]
+  resources :users, only: [:show]
 end
