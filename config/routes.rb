@@ -5,6 +5,18 @@ Rails.application.routes.draw do
   
   
   resources :games, only: [:new]
-  resources :posts, only: [:new, :create, :destroy, :edit, :update]
-  resources :users, only: [:show]
+  resources :posts, only: [:new, :create, :destroy, :edit, :update] 
+  # do
+    # member do
+    #   get :favoriteusers
+    # end
+  # end
+  
+  resources :users, only: [:show] do
+    member do
+      get :likes
+    end
+  end
+  
+  resources :favorites, only: [:create, :destroy]
 end

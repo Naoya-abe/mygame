@@ -13,6 +13,9 @@
             <div class="panel-body text-center">
               <p class="game-title"><%= post.game.title %></p>
               <p class="post_impression"><%= post.impression %></p>
+            <% if user_signed_in? %>
+              <%= render 'favorites/favorite_button', post: post %>
+            <% end %>
             </div>
           </div>
         </div>

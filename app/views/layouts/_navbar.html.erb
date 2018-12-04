@@ -15,10 +15,10 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
-            <a href="#">
+            <%= link_to likes_user_path(current_user) do %>
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
               いいね一覧
-            </a>
+            <% end %>
           </li>
           <li>
             <%= link_to new_game_path do %>
