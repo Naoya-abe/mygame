@@ -3,5 +3,26 @@
     <h1><%= @user.name%></h1>
   </div>
   
-<%= render 'posts/posts', posts: @posts %>
-  
+<% if @posts %>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="post">
+        <div class="col-md-4 col-sm-6 col-xs-15">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <p class="user_name text-left"><%= post.user.name %></p>
+              <img src="<%= post.game.image_url %>" alt="" >
+            </div>
+            <div class="panel-body text-center">
+              <p class="game-title"><%= post.game.title %></p>
+              <p class="post_impression"><%= post.impression %></p>
+              <%= link_to '編集する', edit_post_path(post) %>
+              <%= link_to '削除する', post, method: :delete, data: { confirm: '本当に削除してよろしいですか？'} %>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
