@@ -1,6 +1,6 @@
 <div class="user-profile">
   <div class="name text-center">
-    <h1><%= @user.name%></h1>
+    <h1><%= @user.name %> <%= link_to 'プロフィール編集', edit_user_registration_path, class: 'btn btn-success btn-sm' %></h1>
   </div>
   
 <% if @posts %>
@@ -25,3 +25,7 @@
     <% end %>
   </div>
 <% end %>
+
+<div class="taikai text-center">
+  <%= link_to '退会する', @user, method: :delete, data: { confirm: '本当に退会してよろしいですか？'}, class: 'btn btn-danger btn-sm '%>
+</div>
