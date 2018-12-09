@@ -1,11 +1,13 @@
-<% if current_user.liking?(post) %>
-  <%= form_for(current_user.favorites.find_by(post_id: post.id), html: {method: :delete }) do |f| %>
-    <%= hidden_field_tag :post_id, post.id %>
-    <%= f.submit 'Unlike', class: 'btn btn-danger btn-block' %>
+<div class='favorite_button text-center'>
+  <% if current_user.liking?(post) %>
+    <%= form_for(current_user.favorites.find_by(post_id: post.id), html: {method: :delete }) do |f| %>
+      <%= hidden_field_tag :post_id, post.id %>
+      <%= f.submit 'Unlike', class: 'btn btn-danger btn-sm' %></span>
+    <% end %>
+  <% else %>
+    <%= form_for(current_user.favorites.build) do |f| %>
+      <%= hidden_field_tag :post_id, post.id %>
+      <%= f.submit 'Like', class: 'btn btn-primary btn-sm' %>
+    <% end %>
   <% end %>
-<% else %>
-  <%= form_for(current_user.favorites.build) do |f| %>
-    <%= hidden_field_tag :post_id, post.id %>
-    <%= f.submit 'Like', class: 'btn btn-primary btn-block' %>
-  <% end %>
-<% end %>
+</div>

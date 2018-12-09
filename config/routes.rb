@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'toppages#index'
   
-  
+  get 'rankings/favorite', to: 'rankings#favorite' 
   
   resources :games, only: [:new]
   resources :posts, only: [:new, :create, :destroy, :edit, :update] 

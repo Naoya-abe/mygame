@@ -4,10 +4,10 @@
   <div class="row">
     <% posts.each do |post| %>
       <div class="post">
-        <div class="col-md-4 col-sm-6 col-xs-15">
+        <div class="col-md-3 col-sm-4 col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading text-center">
-              <p class="user_name text-left"><%= post.user.name %></p>
+              <p class="user_name text-left"><img src="<%= post.user.image.thumb30.url%>" alt="" >　<%= post.user.name %></p>
               <img src="<%= post.game.image_url %>" alt="" >
             </div>
             <div class="panel-body text-center">

@@ -1,12 +1,7 @@
-<div class="user-profile">
-  <div class="name text-center">
-    <img src="<%= @user.image.url%>" alt="" >
-    <h1><%= @user.name %> 　<%= link_to 'プロフィール編集', edit_user_registration_path, class: 'btn btn-success btn-sm' %></h1>
-  </div>
-  
-<% if @posts %>
+<h1>お気に入りランキング</h1>
+<% if @posts.present? %>
   <div class="row">
-    <% @posts.each do |post| %>
+    <% @posts.each_with_index do |post, index| %>
       <div class="post">
         <div class="col-md-3 col-sm-4 col-xs-12">
           <div class="panel panel-default">
@@ -14,16 +9,19 @@
               <p class="user_name text-left"><%= post.user.name %></p>
               <img src="<%= post.game.image_url %>" alt="" >
             </div>
-            <div class="panel-body text-center">
+            <div class="panel-body">
               <p class="game-title"><%= post.game.title %></p>
               <p class="post_impression"><%= post.impression %></p>
-              <%= link_to '編集する', edit_post_path(post) %>
-              <%= link_to '削除する', post, method: :delete, data: { confirm: '本当に削除してよろしいですか？'} %>
+              <% if user_signed_in? %>
+                <%= render 'favorites/favorite_button', post: post %>
+              <% end %>
             </div>
+          </div>
+          <div class="panel-footer">
+              <p class="text-center"><%= index+1 %>位: <%= @favorite_counts[post.id] %> いいね！ </p>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 <% end %>
-
